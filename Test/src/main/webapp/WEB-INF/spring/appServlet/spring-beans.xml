@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:si="http://www.springframework.org/schema/integration"
+	xmlns:file="http://www.springframework.org/schema/integration/file"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/integration
+			http://www.springframework.org/schema/integration/spring-integration.xsd
+			http://www.springframework.org/schema/integration/file
+			http://www.springframework.org/schema/integration/file/spring-integration-file.xsd
+			http://www.springframework.org/schema/util
+			http://www.springframework.org/schema/util/spring-util.xsd
+			http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+	<bean id="PropertyLocation"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:config.properties</value>
+				<value>classpath:sql_query.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="HomeController" class="com.ibcsPrimax.controller.HomeController">		
+		<property name="testService" ref="TestService" />
+		<property name="username" value="Taleb" />
+	</bean>
+	
+	<bean id="jdbcTemplateObject" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+		<constructor-arg ref="DataSource" />
+	</bean> <!-- this is tested & useing Its ok -->
+	
+	<!-- <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<constructor-arg ref="DataSource" />
+	</bean> --> <!-- this is tested ok -->
+	
+	<bean id="TestService" class="com.ibcsPrimax.controller.TestService" init-method="init">		
+		<property name="jdbcTemplateObject" ref="jdbcTemplateObject" />	
+		<property name="sqlQueryMap">
+			<map>				
+				<entry key="sql.user.login" value="${sql.user.login}" />				
+			</map>
+		</property>					
+	</bean>	
+
+	<bean id="DataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="initialSize" value="2" />
+		<property name="maxActive" value="-1" />
+		<property name="maxIdle" value="2" />
+		<property name="defaultAutoCommit" value="true" />
+
+	</bean>
+
+</beans>

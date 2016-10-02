@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap
+        PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+        "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="company">
+	<resultMap id="result" class="com.bepza.mis.domain.Company">
+		<result property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="zone" column="zone" />
+		<result property="investment" column="investment" />
+		<result property="employment" column="employment" />
+		<result property="status" column="status" />
+	</resultMap>
+
+	<select id="selectAll" resultMap="result">
+		SELECT * FROM company where status is null
+	</select>
+
+	<select id="selectById" resultMap="result">
+		SELECT p.id, p.name
+		FROM project p
+		WHERE id = #id#
+	</select>
+
+
+	<select id="countRows" resultClass="java.lang.Integer">
+		SELECT count(*) FROM company where status is null
+	</select>
+<!-- <insert id="insert" parameterClass="java.util.HashMap">	
+insert into company(id, name, zone, investment, employment)
+		select 'CP'||lpad (company_seq.nextval, 5, '0'), #name#,  #zone#, #investment#, #employment# from dual
+ -->
+	<insert id="insert" parameterClass="com.bepza.mis.domain.Company">
+		<selectKey resultClass="java.lang.String" keyProperty="id">
+			SELECT 'CP'||lpad (company_seq.nextval, 5, '0') FROM DUAL
+		</selectKey>
+     	insert into company(id, name, zone, investment, employment)
+		VALUES(#id#, #name#, #zone#, #investment#,#employment#)
+	</insert>
+
+	<update id="update">
+		UPDATE project
+		SET name = #name#
+		WHERE id = #id#
+	</update>
+
+	<delete id="delete">
+		DELETE FROM project WHERE id = #id#
+	</delete>
+</sqlMap>

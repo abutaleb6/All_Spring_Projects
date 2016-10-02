@@ -1,0 +1,341 @@
+/* CSS Document */
+body{ height:100%; margin: 0 auto; padding: 0; color: #2c2c2c; font: normal 12px Tahoma, Geneva, sans-serif; background: #fff; }
+
+h1{ margin: 0; padding: 0; }
+h2{ margin: 10px; padding: 10px; color:#276ae4; display:inline-block}
+h3{ margin:10px; padding: 3px; font-family: fantasy; border: 3px; color:#276ae4 ;display:inline-block; font-size:medium;  }
+h4{ margin: 0; padding: 0; }
+h5{ margin: 0; padding: 0; }
+h6{ margin: 0; padding: 0; }
+p{ margin: 0; padding: 0; line-height: 18px;  }
+a{ margin: 0; padding: 0; text-decoration:none; outline: none;  }
+ul,ol,li{ margin: 0; padding: 0; list-style:none;}
+img { margin: 0; padding: 0; border: 0; }
+form{ margin: 0; padding: 0; }
+input{ margin: 0; padding: 0; }
+input:focus, textarea:focus, select:focus {outline:0 none;}
+
+
+                label, input { display:block; }
+		input.text { margin-bottom:12px; width:95%; padding: .4em; }
+		fieldset { padding:0; border:0; margin-top:25px; }
+
+
+
+/* css for timepicker */
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+
+#mainWrapper{  min-height:100%; position:relative; }
+#wrapper{ margin:0; /*background:url(../images/mainbg.png) repeat-y scroll center top #D1D9DB;*/ }
+
+/**------------------------------------------- HEADER BLOCK CSS ----------------------------------------**/
+
+#header_wrapper{ background:url(../images/headerbg.png) left top repeat-x; min-height: 130px; height: auto !important; height: 130px; }
+#header{ margin:auto; width:1000px;   }
+#Blocklogo{ float:left; width: 710px;}
+#Blocklogo h1{ color: #ff9600; font-size: 35px; margin-top: 30px;
+    font-family: Arial,Helvetica,sans-serif;
+}
+#Blocklogo h1 span{ color: #fff;  }
+#blockRightSide{ float:right; width: 170px; position:relative; }
+
+/*#menuBlock{ background:url(../images/topBarRight.png) right top no-repeat; height: 34px; margin-top: 30px; }
+#menuBlock ul{ background:url(../images/topBarLeft.png) left top no-repeat; padding-left: 15px; height: 34px; }
+#menuBlock li a{ display: block; float: left; padding: 7px 0 0 0; font: normal 11px Tahoma, Geneva, sans-serif; text-transform: uppercase; color: #000; margin-right: 10px; }
+#menuBlock li a.login{ background: url(../images/login.gif) left 8px no-repeat; padding-bottom: 5px;  padding-left: 22px; }
+#menuBlock li a.faq{ background: url(../images/info.gif) left 7px no-repeat; padding-bottom: 5px;  padding-left: 22px; }
+#menuBlock li a:hover{ color: #FFF; }
+
+#topRightMenu{ background:url(../images/rightTop-Left.png) left top no-repeat; padding-left: 7px; }
+#topRightMenu ul { background:url(../images/rightTop-right.png) right top no-repeat; width:97%; padding: 8px 0 8px 5px; }
+#topRightMenu ul li{ display:inline;  padding: 0 0;   }
+#topRightMenu li a{ font: normal 11px Arial, Helvetica, sans-serif; color: #999; text-align:center;  padding: 0 5px; border: 1px solid #b5cbd1; border-width: 0 1px 0 0;  }
+#topRightMenu li a:hover{ color:#FFF; }*/
+
+
+#container{ margin: auto; width: 1000px; background:url(../images/sidebarleft.png) left top repeat-y; }
+/**---------------------------LEFT SIDE -------------------------------**/
+#leftSidebar{  float: left; width: 230px; padding-top: 25px; }
+.widget_container{ margin-bottom: 50px; }
+img.userprof{ float: left; border: 4px solid #e9e9e9; margin-right: 10px;}
+.widget_content h1.content-h1{ font: bold 12px Tahoma, Geneva, sans-serif; color: #333; padding-top: 10px;  }
+.widget_content h1.content-h2{font: normal 11px Tahoma, Geneva, sans-serif;}
+.widget_content h1.content-h2 a{color: #276ae4; font: normal 11px Tahoma, Geneva, sans-serif; margin: 0 6px 0 0; }
+.widget_content h1.content-h2 a span{  color: #ff0c00; padding-left:6px; }
+
+
+
+/**-------------------------- CONTENT RIGHT ----------------------------**/
+#contentBlock{ float: right; width: 740px; padding-top: 25px; }
+
+.user-name-block h1 span{ color: #9d9c9c; }
+.user-name-block h1{ color: #000; font-size: 30px; }
+.user-name-block p{ font: normal 11px Tahoma, Geneva, sans-serif; color: #000; }
+
+.widget_list{ margin-top: 50px; margin-bottom: 50px; }
+.widget_list li{ float: left; width: 104px; height: 100px; background:url(../images/dashboard.png) center top no-repeat; margin-right: 15px; }
+.widget_list p{ text-align: center; font: normal 11px Tahoma, Geneva, sans-serif; padding: 0 3px; }
+.widget_list p img{ margin-top: 15px; margin-bottom: 5px; }
+.widget_list p img.double{ margin-top: 10px; margin-bottom: 5px; }
+.widget_list p a{ font: normal 11px Tahoma, Geneva, sans-serif; color: #242424; }
+.widget_list p a:hover{ color: #ff9600; }
+
+/**------------------------- WIDGET STYLES ------------------------**/
+.widget_title h1{ font-size: 28px; margin-bottom: 10px; }
+
+
+.box1{ background: #d4f684 url(../images/complete.png) 15px 50% no-repeat; border: 1px #88be07 solid; margin-bottom: 20px; margin-top: 10px; position: relative; }
+.box2{ background: #f6e784 url(../images/warning.png) 15px 50% no-repeat; border: 1px #ab960a solid;  position: relative; margin-bottom: 30px; }
+.box1, .box2{ width: 94%; }
+
+.box1 h1, .box2 h1{ color: #5b5b5b; font-size: 25px; margin: 15px 0 0 80px; }
+.box1 p, .box2 p{ font: normal 12px Tahoma, Geneva, sans-serif; color: #2e3a12; margin: 0 0 20px 80px; }
+
+a.close{ position: absolute; right: 10px; top: 10px; z-index: 1000; width: 10px; height: 9px; overflow: hidden; background: url(../images/close.png) center top no-repeat; }
+
+/**-------------------------------------- NAVIGATION CSS --------------------------------------------------**/
+/*#navMenu{ margin:0;}
+#nav ul{ margin: 26px 0 0 0; padding:0; }
+#nav ul li{   }
+#nav li a{ background: url(../images/linebar.png) right top no-repeat; font: normal 13px Tahoma, Geneva, sans-serif; color: #FFF; display: block; float: left; padding: 10px 20px; text-align: center; }
+#nav li a:hover, #nav li a.current{ color: #ff9600;}*/
+
+/**-------------------------------- FOOTER BLOCK CSS --------------------------------------------------------**/
+#footer {
+   	width:100%;
+   	background:url(../images/footerbg.png) left top repeat-x; padding: 20px 0; color: #2c2c2c;
+
+}
+
+#footer1 {
+	position: absolute;
+	bottom:0;
+   	width:100%;
+   	background:url(../images/footerbg.png) left top repeat-x; padding: 20px 0; color: #2c2c2c;
+
+}
+#footerWrapper{ margin: auto; width: 1000px; }
+
+#footerWrapper ul{ margin: 0 0 0 425px; }
+#footerWrapper ul li{ display: inline; }
+#footerWrapper li a{ font: normal 11px Tahoma, Geneva, sans-serif; color: #000; padding: 0 3px; }
+#footerWrapper p{ text-align: center; }
+#footer p{ text-align:center; font: normal 11px Arial, Helvetica, sans-serif; margin-bottom: 5px; color: #676767;  }
+#footer a{ color: #999 ; }
+#footer a:hover{ text-decoration:underline; }
+
+
+
+
+/**-----------------------------------------COMMON USE CSS ---------------------------------**/
+.clr{ clear: both; height:0; overflow:hidden; }
+
+ul.lists{ margin:0 0 0 20px; padding:0; }
+ul.lists li{ }
+ul.lists li a{ display: block; padding-left: 15px; font: normal 12px Tahoma, Geneva, sans-serif; color: #222222; background: url(../images/listpoint.png) left 50% no-repeat; line-height: 25px;   }
+
+ul.lists li a:hover{ color: #ff9600; }
+
+
+
+/**--------------------------------- INNER PAGE CSS ----------------------------------**/
+.page-title h1 span{ color: #9d9c9c; }
+.page-title h1{ color: #000; font-size: 30px; }
+.page-title p{ font: normal 11px Tahoma, Geneva, sans-serif; color: #000; }
+
+
+.itemDiv{ background: #edecec; border: 1px solid #d1d1d1; width: 100%; padding: 10px; margin-bottom: 25px; }
+table.commonTable{ margin-left: 10px; font: bold 11px Tahoma, Geneva, sans-serif; border-collapse: collapse; }
+table.commonTable td{ padding: 2px 0;  }
+.basicInput{   }
+input.basicInput{ padding: 5px 10px; width: 100px; border:0; background: 0; border: 1px solid #d0cfcf; background: #fff; color: #666; }
+input.defaultInput{ padding: 4px 8px; width: 75px; border:0; background: 0; border: 1px solid #d0cfcf; background: #fff; color: #666; }
+textarea.basicInput{ padding: 5px 10px; border: 1px solid #d0cfcf; background: #fff; width: 450px; height: 100px; color: #666; }
+
+input.submit{ border: 1px solid #010c19; background:#002147; font: bold 11px Tahoma, Geneva, sans-serif; color: #FFF; text-transform: uppercase; padding: 3px 6px; cursor: pointer; margin-right: 5px; margin-top: 5px; }
+input.submit:hover{ color: #ff9600; }
+.ui-datepicker{ width: 16em !important; }
+
+
+.tableDiv{ border: 1px solid #000;  background: #232323; border-width: 1px 1px 0 1px;}
+table.tableView{ border-collapse: collapse; width: 100%; font: normal 12px Tahoma, Geneva, sans-serif;   }
+table.tableView th{  border: 1px solid #373737; border-width: 0 1px 1px 0; color: #ff9600; font: bold 12px Tahoma, Geneva, sans-serif; padding: 8px 15px; text-align: center; }
+table.tableView td{ background: #fff; border: 1px solid #000; padding: 6px 0 6px 10px; border-right:0; }
+table.tableView tr.odd td{ background: #ebebeb; }
+table.tableView tr.odd td span{ text-transform: uppercase; }
+
+
+.pagination{ margin-top: 10px; margin-bottom: 10px;}
+.pagination ul{ margin:0; padding:0;}
+.pagination ul li{}
+.pagination li a{ display: block; float: left; margin-right: 3px; padding: 3px 7px; font: bold 11px Arial, Helvetica, sans-serif; color: #ff9600; background: #edecec; border: 1px solid #d9d9d9; }
+.pagination li a.more{ color: #333; }
+.pagination li a:hover{ color: #000; }
+
+ul.tabView{ margin:0 0 0 0; padding:0; border-bottom: 3px #000 solid; }
+ul.tabView li{}
+ul.tabView li a{ display: block; float: left; font: normal 12px Tahoma, Geneva, sans-serif; color: #000; background: #edecec; border: 1px #d9d9d9 solid; margin: 0 6px 0 0; padding: 4px 10px; text-align:center; }
+ul.tabView li a:hover{ background: #ff9600; border: 1px solid #c77501; color: #fff;}
+.tab-container{ border: 1px #ccc solid; padding: 10px; }
+
+
+
+#table-design thead {
+	width: 100%;
+}
+#table-design td {
+	padding: 5px 5px 5px 0;
+	vertical-align: top;
+}
+#table-design thead th {
+	padding-right: 10px;
+	text-align: left;
+}
+
+
+
+#table-2 {
+	border: 1px solid #e3e3e3;
+	background-color: #f2f2f2;
+        width: 100%;
+	border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+}
+#table-2 td, #table-2 th {
+	padding: 5px;
+	color: #333;
+}
+#table-2 thead {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	padding: .2em 0 .2em .5em;
+	text-align: left;
+	color: #4B4B4B;
+	background-color: #C8C8C8;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#e3e3e3), color-stop(.6,#B3B3B3));
+	background-image: -moz-linear-gradient(top, #D6D6D6, #B0B0B0, #B3B3B3 90%);
+	border-bottom: solid 1px #999;
+}
+#table-2 th {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 17px;
+	line-height: 20px;
+	font-style: normal;
+	font-weight: normal;
+	text-align: left;
+	text-shadow: white 1px 1px 1px;
+}
+#table-2 td {
+	line-height: 20px;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	border-bottom: 1px solid #fff;
+	border-top: 1px solid #fff;
+}
+#table-2 td:hover {
+	background-color: #fff;
+}
+
+
+
+
+
+
+#table-6 {
+width: 80%;
+border: 1px solid #B0B0B0;
+}
+#table-6 tbody {
+/* Kind of irrelevant unless your .css is alreadt doing something else */
+margin: 0;
+padding: 0;
+border: 0;
+outline: 0;
+font-size: 100%;
+vertical-align: baseline;
+background: transparent;
+}
+#table-6 thead {
+text-align: left;
+}
+#table-6 thead th {
+background: -moz-linear-gradient(top, #F0F0F0 0, #DBDBDB 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #F0F0F0), color-stop(100%, #DBDBDB));
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F0F0F0', endColorstr='#DBDBDB', GradientType=0);
+border: 1px solid #B0B0B0;
+color: #444;
+font-size: 16px;
+font-weight: bold;
+padding: 3px 10px;
+}
+#table-6 td {
+padding: 3px 8px;
+}
+#table-6 tr:nth-child(even) {
+background: #F2F2F2;
+}
+
+
+#register-wrap{ float:left; width: 557px; }
+#register-wrap-top{ background:url(../images/logintop.png) left top no-repeat; height: 10px; overflow:hidden;}
+#register-wrap-mid{ background:url(../images/loginmid.png) left top repeat-y; }
+#register-wrap-btm{ background:url(../images/loginbtm.png) left top no-repeat; height: 10px; overflow:hidden;}
+#login-wrap{ /*width: 310px; float:right;*/ margin-top: 50px; }
+#login-wrap-top{ background:url(../images/logtop.png) left top no-repeat; height: 9px; overflow:hidden; }
+#login-wrap-mid{ background:url(../images/logmid.png) left top repeat-y; }
+#login-wrap-btm{ background:url(../images/logbtm.png) left top no-repeat; height: 9px; overflow:hidden; }
+
+.regiform input.input-fields{ background: #fff url(../images/inputrep.png) left top repeat-x; border: 1px #bbbbbb solid; padding: 4px 3px; width: 200px; }
+.regiform input.input-fields-login{ background: #fff url(../images/inputrep.png) left top repeat-x; border: 1px #bbbbbb solid; padding: 4px 3px; width: 245px; }
+.regiform input.radios{ position: relative; top: 4px; margin-right: 3px; }
+.regiform span{ font:normal 11px Tahoma, Geneva, sans-serif; }
+table.regiform{ margin-left: 20px; font: bold 12px Arial, Helvetica, sans-serif; color:#000; }
+table.regiform p{ margin: 1px 0;}
+
+ .Entrydiv{ width: 740px; overflow: auto; }
+
+#menu {margin-top:27px; position:relative; height:38px;}
+#dropline {position:relative; font-size:12px; height:38px; background:url(images/back.gif);}
+#dropline, #dropline ul {padding:0; margin:0; list-style:none; width:1000px;}
+#dropline table {border-collapse:collapse; margin:-1px -10px; 0 0; padding:0; width:0; height:0; font-size:12px;}
+#dropline li {float:left; height:38px;}
+#dropline li a {float:left; display:block; height:38px; line-height:38px; padding:0 20px 0 10px; font-family:arial, sans-serif; font-size:11px; color:#fff; text-decoration:none; font-weight:bold;}
+#dropline li a:hover{ color: #ff9600; }
+#dropline li ul li a {color:#fff;}
+#dropline li a.down {background:url(images/down.gif) no-repeat right center;}
+#dropline li ul li a.down {font-size:12px; font-weight: normal; color: #ff9600; }
+#dropline li ul li a.down:hover { color: #ff9600 !important;  }
+#dropline li ul {position:absolute; top:38px; left:-9999px; z-index:10; background: #333;}
+#dropline li ul.floatRight li {float:right;}
+label, input { display:block; }
+input.text { margin-bottom:12px; width:95%; padding: .4em; }
+
+
+
+.inputArea
+{
+    font-family: Arial, Sans-Serif;
+    font-size: 13px;
+    background-color: #d6e5f4;
+    padding: 10px;
+}
+
+.inputArea input[type="text"], #inputArea textarea
+{
+    font-family: Arial, Sans-Serif;
+    font-size: 13px;
+    margin-bottom: 5px;
+    display: block;
+    padding: 4px;
+    border: solid 1px #85b1de;
+    width: 300px;
+}
+
+
+
+

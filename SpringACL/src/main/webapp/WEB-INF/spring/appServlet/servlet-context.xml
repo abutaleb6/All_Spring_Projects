@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/security
+			http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+			
+	<!-- @author Ahasanul Ashid, IBCS, @author Abu Taleb, IBCS -->
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<annotation-driven />
+	
+	<!-- To enable Method Security Expressions and custom PermissionEvaluator we need to add the following -->	
+	<security:global-method-security
+		pre-post-annotations="enabled" secured-annotations="enabled">
+		<security:expression-handler ref="expressionHandler" />		
+	</security:global-method-security>
+	
+	<!-- Declare a custom PermissionEvaluator interface -->
+	<beans:bean class="com.ibcs.acl.security.CustomPermissionEvaluator" id="customPermissionEvaluator"/>	
+	
+	<!-- To use hasPermission() expressions, we have to configure a PermissionEvaluator -->
+	<beans:bean id="expressionHandler"
+		class="org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler">
+		<beans:property name="permissionEvaluator" ref="customPermissionEvaluator" />
+		<!--<property name = "roleHierarchy" ref="roleHierarchy"/> -->
+	</beans:bean>
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
+		up static resources in the ${webappRoot}/resources directory -->
+	<resources mapping="/resources/**" location="/resources/" />
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<beans:bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- Bellow Line Added for Read xml property from Jsp Like Object Bean and Object Property -->
+		<beans:property name="exposeContextBeansAsAttributes" value="true"/>		
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+
+	<!-- Annotation Configuration -->
+	<context:annotation-config />
+
+	<!-- Declare Base Package -->
+	<context:component-scan base-package="com.ibcs, com.ibcs.acl, com.ibcs.acl.service, com.ibcs.acl.dao" />
+	
+	<!-- Read Properties file from Classpath (dir : src/main/resources) -->
+	<context:property-placeholder location="classpath:database.properties"
+		ignore-unresolvable="true" />
+
+	<!-- Database Property -->
+	<beans:bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<beans:property name="driverClassName" value="${database.driver}" />
+		<beans:property name="url" value="${database.url}" />
+		<beans:property name="username" value="${database.user}" />
+		<beans:property name="password" value="${database.password}" />
+	</beans:bean>
+
+	<!-- Hibernate 4 SessionFactory Bean definition -->
+	<beans:bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<beans:property name="dataSource" ref="dataSource" />
+		<beans:property name="packagesToScan">
+			<beans:list>
+				<beans:value>com.ibcs.acl.model</beans:value>
+			<!-- 	<beans:value>com.bepza.mis.psa.model</beans:value> -->
+			</beans:list>
+		</beans:property>
+		<beans:property name="hibernateProperties">
+			<beans:props>
+				<beans:prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect
+				</beans:prop>
+				<beans:prop key="hibernate.show_sql">true</beans:prop>
+				<beans:prop key="hibernate.hbm2ddl.auto">update</beans:prop>
+			</beans:props>
+		</beans:property>
+	</beans:bean>
+	
+	<!-- For Employee Insert Update select and delete -->	
+	<beans:bean id="employeeDao" class="com.ibcs.acl.dao.EmployeeDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="sessionFactory" />
+	</beans:bean>
+	
+	<beans:bean id="employeeService"
+		class="com.ibcs.acl.service.EmployeeServiceImpl">
+		<beans:property name="employeeDao" ref="employeeDao"></beans:property>
+	</beans:bean>	
+	
+	<beans:bean id="homeController" class="com.ibcs.acl.HomeController">
+		<beans:property name="employeeService"
+			ref="employeeService" />
+	</beans:bean>
+	
+	<!--This besEmployee's permission on JSP page -->
+	<beans:bean class="com.ibcs.acl.model.Employee" id="employee"/>
+	
+	<!-- Session Send to Java via Annotation -->	
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<!-- Declare Transection Manager -->
+	<beans:bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<beans:property name="sessionFactory"
+			ref="sessionFactory" />
+	</beans:bean>
+	
+	<!-- cache Clear and Back Button Disable after Logout -->
+	 <interceptors>
+        <interceptor>
+            <mapping path="/**/*"/>
+            <beans:bean id="webContentInterceptor" class="org.springframework.web.servlet.mvc.WebContentInterceptor">
+                <beans:property name="cacheSeconds" value="0"/>                
+            </beans:bean>
+        </interceptor>
+    </interceptors>	
+  
+	
+	<!-- Testing User's permission on JSP page -->
+	<beans:bean class="com.ibcs.acl.model.User" id="abc"/>
+
+</beans:beans>

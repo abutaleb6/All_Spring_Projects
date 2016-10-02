@@ -1,0 +1,23 @@
+@CHARSET "ISO-8859-1";
+
+input.eduDtlBtn{
+    background: #ccc url('../images/plus.png') no-repeat top left;
+    padding-left: 16px;
+    height: 20px;
+}
+
+.addNewEduBtn {
+   background:url('../images/Plus_Circle_Green.png') no-repeat left center;
+   padding-left:0px;
+   width: 20px;
+   height: 20px;
+}   
+
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+	width: 135px;
+    text-decoration: none;
+    color: initial;
+} 

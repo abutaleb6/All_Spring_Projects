@@ -1,0 +1,873 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.1.0.final using JasperReports Library version 6.1.0  -->
+<!-- 2015-07-01T13:25:52 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SendMonyeForm" language="java" pageWidth="595" pageHeight="842" whenNoDataType="BlankPage" columnWidth="580" leftMargin="10" rightMargin="5" topMargin="20" bottomMargin="20" uuid="f05a814f-cc56-449f-bae1-9cf7d0f1510b">
+	<property name="ireport.zoom" value="0.9090909090909091"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="192"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="SEBLDataSource"/>
+	<queryString language="SQL">
+		<![CDATA[]]>
+	</queryString>
+	<field name="id_key" class="java.lang.Long"/>
+	<field name="amount_in_zar" class="java.math.BigDecimal"/>
+	<field name="exchange_rate" class="java.math.BigDecimal"/>
+	<field name="amount_in_tk" class="java.math.BigDecimal"/>
+	<field name="cust_first_name" class="java.lang.String"/>
+	<field name="cust_surname" class="java.lang.String"/>
+	<field name="resident_address" class="java.lang.String"/>
+	<field name="cust_post_code" class="java.lang.String"/>
+	<field name="cust_id_no" class="java.lang.String"/>
+	<field name="cust_id_exp_date" class="java.sql.Date"/>
+	<field name="cust_date_of_birth" class="java.sql.Date"/>
+	<field name="cust_phone_no" class="java.lang.String"/>
+	<field name="cust_email" class="java.lang.String"/>
+	<field name="cust_city_suburb" class="java.lang.String"/>
+	<field name="cust_povince" class="java.lang.String"/>
+	<field name="cust_remit_purpose" class="java.lang.String"/>
+	<field name="ben_first_name" class="java.lang.String"/>
+	<field name="ben_surname" class="java.lang.String"/>
+	<field name="ben_resident_address" class="java.lang.String"/>
+	<field name="ben_district" class="java.lang.String"/>
+	<field name="ben_email" class="java.lang.String"/>
+	<field name="ben_phone" class="java.lang.String"/>
+	<field name="ben_acct_no" class="java.lang.String"/>
+	<field name="ben_bank_name" class="java.lang.String"/>
+	<field name="ben_bank_branch" class="java.lang.String"/>
+	<field name="ben_country" class="java.lang.String"/>
+	<field name="ben_company" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="84" splitType="Stretch">
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="225" y="62" width="158" height="20" uuid="2a973761-e67b-42f1-89cf-29e32536e583"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[SEND MONEY FORM]]></text>
+			</staticText>
+			<image scaleImage="FillFrame" hAlign="Center" vAlign="Middle" isLazy="true">
+				<reportElement stretchType="RelativeToBandHeight" x="1" y="0" width="582" height="59" isRemoveLineWhenBlank="true" uuid="741f074e-2252-4edd-907a-f4aedffbd468"/>
+				<imageExpression><![CDATA["\\header.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<detail>
+		<band height="652" splitType="Stretch">
+			<staticText>
+				<reportElement x="64" y="4" width="100" height="20" uuid="dd120579-3512-415d-a096-ef3b1575488f"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[SENDER DETAILS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="24" width="100" height="15" uuid="56809dde-82cf-4878-b639-9c6e86e5201b"/>
+				<text><![CDATA[First Name :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="24" width="122" height="15" uuid="85e460a1-5927-4168-874f-9ac5a61fcc6e"/>
+				<text><![CDATA[Surname :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="98" width="64" height="15" uuid="7ade81e5-74a1-4454-bf5f-dd01203d7ee5"/>
+				<text><![CDATA[City Suburb :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="110" y="98" width="67" height="15" uuid="afb28efa-7190-485c-b99c-f43cb051d5cd"/>
+				<text><![CDATA[State :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="204" y="98" width="83" height="15" uuid="c29268eb-0abf-4181-95d9-153969bd1a65"/>
+				<text><![CDATA[Postcode :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="133" width="150" height="15" uuid="1be35cc9-9bb4-4000-8300-6ff5f17c0559"/>
+				<text><![CDATA[Residential Status (Please tick): ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="207" width="294" height="15" uuid="b8bfb25a-1034-4c18-bf02-1b27082ece06"/>
+				<text><![CDATA[Identity No (RSA Residents ) or Password No (Temporary +]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="221" width="72" height="15" uuid="a99471a9-1fbd-43a3-9dd0-e748f546b08a"/>
+				<box leftPadding="5">
+					<pen lineStyle="Dotted"/>
+					<topPen lineStyle="Dotted"/>
+					<leftPen lineStyle="Dotted"/>
+					<bottomPen lineStyle="Dotted"/>
+					<rightPen lineStyle="Dotted"/>
+				</box>
+				<text><![CDATA[Non-Resident) :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="266" width="232" height="15" uuid="28f318a8-bd48-4916-8af2-a5d0fae63e1c"/>
+				<text><![CDATA[Temporary Residence Permit No (If applicable) :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="" x="2" y="306" width="100" height="15" isPrintInFirstWholeBand="true" uuid="dc629e15-e8c5-447f-b270-bf04242ef3eb"/>
+				<textElement verticalAlignment="Middle" markup="styled"/>
+				<text><![CDATA[ID Expiry Date :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="162" y="307" width="100" height="15" uuid="76f4d76b-b427-445e-aab3-6a7a858e0c9f"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Date of Birth :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="344" width="81" height="20" uuid="bada6cfb-a40d-4e08-b10b-32b78ad6db5a"/>
+				<text><![CDATA[Phone Number :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="361" width="81" height="20" uuid="d243bd0a-3218-4cb0-810c-87d6f592f98f"/>
+				<box leftPadding="0"/>
+				<text><![CDATA[Mobile Number :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="378" width="100" height="15" uuid="f2a31922-ad95-4cfd-a552-c9e952e20f75"/>
+				<text><![CDATA[Email  :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="414" width="140" height="15" uuid="63cb09a1-e238-4750-a455-00b4d98a34c1"/>
+				<text><![CDATA[Purpose of Remittance :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="401" y="4" width="143" height="20" uuid="6b696008-3190-4383-addb-f6438ee284c9"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[BENIFICIARY DETAILS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="309" y="24" width="63" height="15" uuid="c9dda9d1-a5b3-447c-9702-836146341d8e"/>
+				<text><![CDATA[First Name :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="459" y="24" width="85" height="15" uuid="eb61c849-773d-481f-83fd-5b230231a806"/>
+				<text><![CDATA[Surname :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="309" y="59" width="81" height="15" uuid="54792142-2b9f-4e6f-a39b-513113a04fac"/>
+				<text><![CDATA[Company Name :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="309" y="91" width="276" height="15" uuid="666ca4ca-1ff2-4435-bc1a-2d491d085fba"/>
+				<text><![CDATA[Residential/Business Address (No P.O Box Address) :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="309" y="126" width="100" height="15" uuid="f8df4e98-f069-4b8c-9cf2-476e6bfbd4de"/>
+				<text><![CDATA[City/Village]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="459" y="126" width="100" height="15" uuid="32454d9d-eca2-426c-9835-efbf02f90e80"/>
+				<text><![CDATA[Police Station]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="164" width="47" height="15" uuid="1a15395b-61f0-4f54-9759-d87a45aeeff5"/>
+				<text><![CDATA[Upozilla :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="398" y="164" width="58" height="15" uuid="6aeb3c73-4430-4443-bea1-f7197ab5d10d"/>
+				<text><![CDATA[District :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="485" y="164" width="98" height="15" uuid="ce9d6316-754f-4c14-a042-bd586803df73"/>
+				<text><![CDATA[Country :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="308" y="204" width="45" height="20" uuid="4073fe8b-3580-4c67-a494-87d38431d401"/>
+				<text><![CDATA[Email :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="223" width="78" height="20" uuid="0414fc8d-f19d-405d-a2ba-c7d2de573e67"/>
+				<text><![CDATA[Mobile Number :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="390" y="253" width="125" height="20" uuid="adfd0926-6a65-4c63-b9a5-f34075defbe2"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[MODE OF PAYMEYMEBT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="313" y="273" width="10" height="10" uuid="a6401fe5-ce47-4b3e-9b24-2dca47070135">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="273" width="100" height="20" uuid="f0f0d0cb-5a0a-4a84-ae92-45cb2c5cd9d9"/>
+				<text><![CDATA[Cash Pick-Up]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="447" y="273" width="10" height="10" uuid="6d1dacf5-70f7-41ce-9924-a7c486207ee4">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="464" y="273" width="100" height="20" uuid="13c84656-6467-4829-809c-1f61c4f612b4"/>
+				<text><![CDATA[Bank Deposit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="383" y="298" width="124" height="20" uuid="c49e533e-2b89-418f-90f9-af69a3825819"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[FOR BANK DEPOSIT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="318" width="265" height="15" uuid="6d3933e8-d1f9-4351-9fac-5fb81cbe1f22"/>
+				<text><![CDATA[Benificiary Account Number/Remit Card Number :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="357" width="62" height="20" uuid="629698f3-017e-46ef-9443-c9148d66724b"/>
+				<text><![CDATA[Bank Name :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="377" width="78" height="15" uuid="dfeb7d5b-68ba-491d-8e30-e4f370631845"/>
+				<text><![CDATA[Branch Name :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="462" y="377" width="80" height="15" uuid="11d3af60-9a9f-495a-a1ab-bec4dd6a1180"/>
+				<text><![CDATA[District Name :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="418" width="78" height="15" uuid="562c9ade-f0fb-46ff-9470-23f0237a18f2"/>
+				<text><![CDATA[Amount in ZAR :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="462" y="418" width="82" height="15" uuid="bc8dba7a-a972-4cd7-bb9b-9c1cf4a205ee"/>
+				<text><![CDATA[Exchange Rate :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="459" width="87" height="20" uuid="0a221304-44eb-4f0b-aba8-537a5250a1cd"/>
+				<text><![CDATA[Amount in Taka :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="300" y="2" width="1" height="479" uuid="340ee784-4c23-4963-864f-cf587e6cebc2"/>
+			</line>
+			<textField>
+				<reportElement x="2" y="37" width="138" height="15" uuid="59167c0d-243c-4efd-aa65-57c843f8a454"/>
+				<box leftPadding="5">
+					<pen lineWidth="1.0" lineStyle="Dotted"/>
+					<topPen lineWidth="1.0" lineStyle="Dotted"/>
+					<leftPen lineWidth="1.0" lineStyle="Dotted"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+					<rightPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cust_first_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="37" width="156" height="15" uuid="613f4948-f29f-49e8-9664-d1c84159e04f"/>
+				<box leftPadding="5">
+					<pen lineWidth="1.0" lineStyle="Dotted"/>
+					<topPen lineWidth="1.0" lineStyle="Dotted"/>
+					<leftPen lineWidth="1.0" lineStyle="Dotted"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+					<rightPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cust_surname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="112" width="105" height="15" uuid="b2f5d623-165f-41bb-8e6e-0a7678049123"/>
+				<box leftPadding="5">
+					<pen lineStyle="Dotted"/>
+					<topPen lineWidth="1.0" lineStyle="Dotted"/>
+					<leftPen lineWidth="1.0" lineStyle="Dotted"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+					<rightPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cust_city_suburb}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="112" width="85" height="15" uuid="eb237e1f-23c8-4697-92b5-d903bace28d3"/>
+				<box>
+					<pen lineStyle="Dotted"/>
+					<topPen lineWidth="1.0" lineStyle="Dotted"/>
+					<leftPen lineWidth="1.0" lineStyle="Dotted"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+					<rightPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cust_povince}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="202" y="112" width="94" height="15" uuid="b33a96b9-ca46-461a-897a-9feaf9e42ee1">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineStyle="Dotted"/>
+					<topPen lineWidth="1.0" lineStyle="Dotted"/>
+					<leftPen lineWidth="1.0" lineStyle="Dotted"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+					<rightPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cust_post_code}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="148" width="10" height="10" uuid="bb515b06-2806-4e7e-a6e6-71ddaeca3c6f">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="166" width="10" height="10" uuid="eb42f9e6-bfe6-4da7-83f5-859a9e2c57bb">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="185" width="10" height="10" uuid="b0ec557a-2d09-4b9d-b5a3-e87d81e32296">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="147" width="153" height="20" uuid="0703bd34-6890-43dc-80d6-785b85060ad5"/>
+				<text><![CDATA[RSA Resident]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="165" width="153" height="20" uuid="bfc71f4d-2bf2-416b-a1fd-c0f81b7dc440"/>
+				<text><![CDATA[Temporary Resident]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="184" width="153" height="20" uuid="18312b8b-4378-451b-a818-57f944c16309"/>
+				<text><![CDATA[Non-Resident]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="2" y="234" width="295" height="15" uuid="3c06f747-f753-490e-b724-43a5069b4330"/>
+				<box leftPadding="5">
+					<pen lineStyle="Dotted"/>
+					<topPen lineWidth="1.0" lineStyle="Dotted"/>
+					<leftPen lineWidth="1.0" lineStyle="Dotted"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+					<rightPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{cust_id_no}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="280" width="295" height="15" uuid="06f036c0-f3e9-4718-bded-5122c192afba"/>
+				<box leftPadding="0">
+					<pen lineStyle="Solid"/>
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="2" y="321" width="150" height="15" uuid="2f99ee34-02fd-4148-aba7-02a775867faa"/>
+				<box leftPadding="5">
+					<pen lineStyle="Dotted"/>
+					<topPen lineWidth="1.0" lineStyle="Dotted"/>
+					<leftPen lineWidth="1.0" lineStyle="Dotted"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+					<rightPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cust_date_of_birth}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="321" width="133" height="15" uuid="c248608f-dc6b-4f01-8210-dab956c21bbf"/>
+				<box>
+					<pen lineStyle="Dotted"/>
+					<topPen lineWidth="1.0" lineStyle="Dotted"/>
+					<leftPen lineWidth="1.0" lineStyle="Dotted"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+					<rightPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cust_date_of_birth}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="85" y="344" width="210" height="15" uuid="bdee0c50-0bef-472d-87b3-27e858a07723"/>
+				<box leftPadding="5">
+					<pen lineStyle="Dotted"/>
+					<topPen lineWidth="1.0" lineStyle="Dotted"/>
+					<leftPen lineWidth="1.0" lineStyle="Dotted"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+					<rightPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cust_phone_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="85" y="362" width="210" height="15" uuid="224d3021-89d7-4572-b133-704e11056b94"/>
+				<box leftPadding="5">
+					<pen lineStyle="Dotted"/>
+					<topPen lineWidth="1.0" lineStyle="Dotted"/>
+					<leftPen lineWidth="1.0" lineStyle="Dotted"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+					<rightPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cust_phone_no}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="2" y="392" width="295" height="15" uuid="6d28eaf6-ea4b-4a74-ad46-94e8f0c4e4f3"/>
+				<box leftPadding="5">
+					<pen lineStyle="Dotted"/>
+					<topPen lineWidth="1.0" lineStyle="Dotted"/>
+					<leftPen lineWidth="1.0" lineStyle="Dotted"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+					<rightPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cust_email}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="2" y="428" width="295" height="15" uuid="d4e9d09e-e538-467c-9406-4c6b3fe8d6b3"/>
+				<box leftPadding="5">
+					<pen lineStyle="Dotted"/>
+					<topPen lineWidth="1.0" lineStyle="Dotted"/>
+					<leftPen lineWidth="1.0" lineStyle="Dotted"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+					<rightPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cust_remit_purpose}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="37" width="145" height="15" uuid="d707329b-663c-4d5a-a035-9ca45ea1c368"/>
+				<box>
+					<pen lineStyle="Dotted"/>
+					<topPen lineWidth="1.0" lineStyle="Dotted"/>
+					<leftPen lineWidth="1.0" lineStyle="Dotted"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+					<rightPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ben_first_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="459" y="37" width="116" height="15" uuid="765667c0-b639-474b-b164-f203e3bfc3f5"/>
+				<box>
+					<pen lineStyle="Dotted"/>
+					<topPen lineWidth="1.0" lineStyle="Dotted"/>
+					<leftPen lineWidth="1.0" lineStyle="Dotted"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+					<rightPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ben_surname}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="72" width="194" height="15" uuid="b9cffabf-e894-4fd2-b4e8-a080d263f976"/>
+				<box>
+					<pen lineStyle="Dotted"/>
+					<topPen lineWidth="1.0" lineStyle="Dotted"/>
+					<leftPen lineWidth="1.0" lineStyle="Dotted"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+					<rightPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ben_company}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="309" y="104" width="266" height="15" uuid="1cea2ff3-d209-4dcf-8006-a66cc89ba499"/>
+				<box>
+					<pen lineStyle="Dotted"/>
+					<topPen lineWidth="1.0" lineStyle="Dotted"/>
+					<leftPen lineWidth="1.0" lineStyle="Dotted"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+					<rightPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ben_resident_address}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="398" y="178" width="87" height="15" uuid="27deddef-dea2-401d-b80c-115cb608a793"/>
+				<box>
+					<pen lineStyle="Dotted"/>
+					<topPen lineWidth="1.0" lineStyle="Dotted"/>
+					<leftPen lineWidth="1.0" lineStyle="Dotted"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+					<rightPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ben_district}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="485" y="178" width="90" height="15" uuid="828bbbfa-1cb7-4458-ae4a-663eb776a182"/>
+				<box>
+					<pen lineStyle="Dotted"/>
+					<topPen lineWidth="1.0" lineStyle="Dotted"/>
+					<leftPen lineWidth="1.0" lineStyle="Dotted"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+					<rightPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ben_country}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="355" y="204" width="220" height="15" uuid="1c11a1ed-e37e-43f8-8501-61cba30af2f4"/>
+				<box>
+					<pen lineStyle="Dotted"/>
+					<topPen lineWidth="1.0" lineStyle="Dotted"/>
+					<leftPen lineWidth="1.0" lineStyle="Dotted"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+					<rightPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ben_email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="397" y="223" width="178" height="15" uuid="42b3d7c1-10a1-442b-8553-7427e051bac7"/>
+				<box>
+					<pen lineStyle="Dotted"/>
+					<topPen lineWidth="1.0" lineStyle="Dotted"/>
+					<leftPen lineWidth="1.0" lineStyle="Dotted"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+					<rightPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ben_phone}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="331" width="265" height="20" uuid="9cd5bc43-7acd-4783-bdf6-b09684b810d4"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ben_acct_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="375" y="357" width="200" height="15" uuid="e8d44787-511f-41d8-8ba8-c5a4ef520ea9"/>
+				<box>
+					<pen lineStyle="Dotted"/>
+					<topPen lineWidth="1.0" lineStyle="Dotted"/>
+					<leftPen lineWidth="1.0" lineStyle="Dotted"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+					<rightPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ben_bank_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="390" width="137" height="15" uuid="babd578e-713e-48d2-afdf-4b25a777dfc8"/>
+				<box>
+					<pen lineStyle="Dotted"/>
+					<topPen lineWidth="1.0" lineStyle="Dotted"/>
+					<leftPen lineWidth="1.0" lineStyle="Dotted"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+					<rightPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ben_bank_branch}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="462" y="390" width="113" height="15" uuid="5c9ace55-8b2a-479e-83cb-168aedb5b570"/>
+				<box>
+					<pen lineStyle="Dotted"/>
+					<topPen lineWidth="1.0" lineStyle="Dotted"/>
+					<leftPen lineWidth="1.0" lineStyle="Dotted"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+					<rightPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ben_district}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="431" width="137" height="15" uuid="28843a2d-49a9-450d-8266-c099ff1ed57e"/>
+				<box>
+					<pen lineStyle="Dotted"/>
+					<topPen lineWidth="1.0" lineStyle="Dotted"/>
+					<leftPen lineWidth="1.0" lineStyle="Dotted"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+					<rightPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{amount_in_zar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="462" y="431" width="113" height="15" uuid="408304c3-a728-496b-a71e-a3bb394c63f3"/>
+				<box>
+					<pen lineStyle="Dotted"/>
+					<topPen lineWidth="1.0" lineStyle="Dotted"/>
+					<leftPen lineWidth="1.0" lineStyle="Dotted"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+					<rightPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{exchange_rate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="397" y="459" width="178" height="15" uuid="7a74629f-006f-4041-9835-ad3781c60bd0"/>
+				<box>
+					<pen lineStyle="Dotted"/>
+					<topPen lineWidth="1.0" lineStyle="Dotted"/>
+					<leftPen lineWidth="1.0" lineStyle="Dotted"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+					<rightPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{amount_in_tk}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="488" width="112" height="20" uuid="f8310e22-d84c-47c0-bf4f-5ecbd748f6ba"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DEPOSIT MODE ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="138" y="491" width="10" height="10" uuid="7a058c8f-584f-4f92-ba8a-9f7cf2ee5cec">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="152" y="486" width="139" height="20" uuid="428cc869-436f-4181-9d14-ceb16e554b11"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Southeast Exchange counter]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="296" y="487" width="10" height="10" uuid="b3d0d50e-163d-455e-82c3-5bc40ee7c926">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="309" y="486" width="152" height="20" uuid="9cd255e8-3337-430f-bd24-4efdec378f87"/>
+				<textElement verticalAlignment="Top"/>
+				<text><![CDATA[In Sountheast Ex-Account With]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="138" y="512" width="10" height="10" uuid="78084f4d-8466-4444-a249-21e58d16371b">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="506" width="100" height="20" uuid="4f766444-9ac0-4001-a7b9-b7317605bb60"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Standard Bank]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="296" y="513" width="10" height="10" uuid="9f30d140-8681-4b58-9052-9069ed49a5bc">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="309" y="508" width="100" height="20" uuid="387b4285-98fd-4b7e-bc62-aab1b580d61f"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[First National Bank]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="412" y="511" width="10" height="10" uuid="364be20b-99fa-43bb-985e-f554620670f3">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="425" y="506" width="100" height="20" uuid="58e212e1-9861-42f9-9fcf-ae9e2025e00e"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Others]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="61" width="294" height="15" uuid="4ee69526-0a35-4a58-b1b4-4867b4439d8c"/>
+				<text><![CDATA[Residential/ Business Address (NO P.O Box Address) :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="2" y="74" width="295" height="15" uuid="2f91ab13-1289-49d7-8815-ac90702a32e5"/>
+				<box leftPadding="5">
+					<pen lineStyle="Dotted"/>
+					<topPen lineWidth="1.0" lineStyle="Dotted"/>
+					<leftPen lineWidth="1.0" lineStyle="Dotted"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+					<rightPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{resident_address}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="309" y="139" width="146" height="15" uuid="895b98e9-3c85-49b1-b856-43c80c641f91"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="459" y="139" width="116" height="15" uuid="8520e035-75f1-4f8c-8a2f-39da9095493a"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="178" width="87" height="16" uuid="ed46adb7-c482-451b-872b-c92edd635116"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="481" width="577" height="1" uuid="428a5617-d296-403f-b267-096402827c6c"/>
+			</line>
+			<line>
+				<reportElement x="0" y="528" width="577" height="1" uuid="669d87a2-629e-44ae-bf71-4f73912cd97d"/>
+			</line>
+			<line>
+				<reportElement x="0" y="650" width="577" height="1" uuid="7c04673b-238e-4deb-8136-4135cab8b58d"/>
+			</line>
+			<staticText>
+				<reportElement x="2" y="529" width="577" height="20" uuid="d2274949-154f-49f0-92d7-1c8ed1a91720"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[I/We , the undersigned hereby declare that: * I have read this document and know and understand the content  thereof;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="549" width="577" height="20" uuid="ece23690-ef62-45f9-ac8a-fc204bc03f41"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[* The information furnished above is all respects both true and correct; * The corrency applied for will only be used for]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="569" width="577" height="20" uuid="a55b268d-cbec-41af-835e-6ce8a11a7051"/>
+				<box leftPadding="6"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[specific purpose stated herein; * The ducument presented in support of this application is in all respects authentic; * ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="589" width="577" height="20" uuid="69d77b7d-de6b-4591-afc0-1f148fe7f398"/>
+				<text><![CDATA[* I have been informed of the limit applicable to the above transaction and confirm that this limit will not be exceeded ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="609" width="577" height="20" uuid="9f9ed8cf-6e96-4b2b-86bd-774737714929"/>
+				<box leftPadding="5"/>
+				<text><![CDATA[as a result of the conclusion of this transaction; * and I consent to this information being provided to the South African]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="629" width="577" height="20" uuid="654413fa-b6f8-4262-a3a0-9d426cb0da4a"/>
+				<box leftPadding="6"/>
+				<text><![CDATA[Revenue Service and/or the Finacial Intelligence Centre and / or the Financial Service Board;]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="1" width="577" height="1" uuid="f5d72863-8e17-4b40-acff-d58f169c91f8"/>
+			</line>
+			<staticText>
+				<reportElement x="71" y="221" width="15" height="15" forecolor="#FF0000" uuid="d745f4b2-f225-42f6-9340-629a5e1323d0"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[*]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="147" y="133" width="15" height="15" forecolor="#FF0000" uuid="f1655341-d235-4431-87e6-15da2ee70d45"/>
+				<text><![CDATA[*]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="2" width="1" height="648" uuid="2a00b937-bfc8-4fd3-a79d-5d86bd9b35e8"/>
+			</line>
+			<line>
+				<reportElement x="577" y="2" width="1" height="648" uuid="b94dc750-4169-4b41-b16f-251a78dc5794"/>
+			</line>
+		</band>
+	</detail>
+	<summary>
+		<band height="59" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="32" width="577" height="1" uuid="e7cb6698-3324-4dc5-916a-17b6beef34fa"/>
+			</line>
+			<staticText>
+				<reportElement x="5" y="10" width="95" height="20" uuid="d5cfcf8e-2fbd-4389-80d8-55db4e554c9e"/>
+				<text><![CDATA[Sender's Signature :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="364" y="10" width="100" height="20" uuid="bbd80549-a4e0-4541-a0a4-6402b81c2265"/>
+				<text><![CDATA[Date :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="97" y="10" width="15" height="15" forecolor="#FF0000" uuid="db0898a0-a7f4-4e8a-9cb8-6fc7b1e3b069"/>
+				<text><![CDATA[*]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="-1" width="1" height="33" uuid="c6828cfc-6e72-468a-96e9-97539062682d"/>
+			</line>
+			<line>
+				<reportElement x="577" y="-1" width="1" height="33" uuid="c7a6fde7-ff0b-4f80-8387-4f519aeb9261"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

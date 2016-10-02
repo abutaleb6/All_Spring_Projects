@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:si="http://www.springframework.org/schema/integration" xmlns:file="http://www.springframework.org/schema/integration/file"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/integration
+			http://www.springframework.org/schema/integration/spring-integration.xsd
+			http://www.springframework.org/schema/integration/file
+			http://www.springframework.org/schema/integration/file/spring-integration-file.xsd
+			http://www.springframework.org/schema/util
+			http://www.springframework.org/schema/util/spring-util.xsd
+			http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+	<bean id="PropertyLocation" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:config.properties</value>
+				<value>classpath:config.arms.properties</value>
+				<value>classpath:sql.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="SeblController" class="com.nazdaqTechnologies.sebl.controller.SeblController">
+		<property name="messageProcessor" ref="GsonJsonMessageProcessor" />
+		<property name="serviceCoordinator" ref="ServiceCoordinator" />
+	</bean>
+
+	<bean id="GsonJsonMessageProcessor" class="com.nazdaqTechnologies.core.message.processor.json.gson.GsonJsonMessageProcessor">
+		<property name="classMap">
+			<map>
+				<entry key="User" value="com.nazdaqTechnologies.sebl.model.SEBLTask" />
+				<entry key="SEBLTaskNote" value="com.nazdaqTechnologies.sebl.model.SEBLTaskNote" />
+				<entry key="SEBLTask" value="com.nazdaqTechnologies.sebl.model.SEBLTask" />
+			</map>
+		</property>
+	</bean>
+
+	<!-- ServiceClasses -->
+	<bean id="ServiceMap" class="com.nazdaqTechnologies.core.service.ServiceMap">
+		<property name="serviceMap">
+			<map>
+				<entry key="UserService" value-ref="SeblService" />
+				<entry key="SEBLTaskNoteService" value-ref="SeblService" />
+				<entry key="SEBLTaskService" value-ref="SeblService" />
+			</map>
+		</property>
+	</bean>
+
+	<bean id="ServiceCoordinator" class="com.nazdaqTechnologies.sebl.service.ServiceCoordinator">
+		<property name="serviceMap" ref="ServiceMap"></property>
+	</bean>
+
+	<bean id="SeblService" class="com.nazdaqTechnologies.sebl.service.SeblService" init-method="init">
+
+		<property name="exchangeHouseKey" value="100"/>
+		<property name="exchangeHouseName" value="SFSL"/>
+		<property name="countryName" value="UK"/>
+		<property name="localCcyId" value="8"/>
+		<property name="remoteUserId" value="-10"/>
+		
+		<property name="jdbcTemplateLocal" ref="jdbcTemplateUK" />
+		
+		<property name="jdbcTemplateBD" ref="jdbcTemplateBD" />
+		<property name="jdbcService" ref="JdbcServiceBD" />
+		
+		<property name="sqlQueryMap">
+			<map>
+				<entry key="sql.select.task" value="${sql.select.task}" />
+				<entry key="sql.update.task" value="${sql.update.task}" />
+				<entry key="sql.select.note" value="${sql.select.note}" />
+				<entry key="sql.insert.note" value="${sql.insert.note}" />
+				
+				<entry key="sql.next.task.id.bd" value="${sql.next.task.id.bd}" />
+				
+				<entry key="sql.select.task.bd" value="${sql.select.task.bd}" />
+				<entry key="sql.insert.task.bd" value="${sql.insert.task.bd}" />
+				
+				<entry key="sql.next.txn.id.bd" value="${sql.next.txn.id.bd}" />
+				
+				<entry key="sql.select.task_list.bd" value="${sql.select.task_list.bd}" />
+				<entry key="sql.insert.task_list.bd" value="${sql.insert.task_list.bd}" />
+				
+				<entry key="sql.insert.task_trace.bd" value="${sql.insert.task_trace.bd}" />
+				
+			</map>
+		</property>
+	</bean>
+
+	<!-- END : ServiceClasses -->
+
+	<!-- END :JdbcUtils configuration -->
+
+	<bean id="jdbcTemplateUK" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+		<constructor-arg ref="DataSourceUK" />
+	</bean>
+
+	<bean id="jdbcTemplateBD" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+		<constructor-arg ref="DataSourceBD" />
+	</bean>
+
+
+	<bean id="JdbcServiceBD" class="com.nazdaqTechnologies.jdbc.JdbcService">
+		<property name="dataSource">
+			<ref bean="DataSourceBD" />
+		</property>
+		<property name="transactionManager">
+			<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+				<property name="dataSource" ref="DataSourceBD" />
+			</bean>
+		</property>
+		<property name="jdbcStatementFactory">
+			<bean id="JdbcStatementFactory" class="com.nazdaqTechnologies.jdbc.JdbcStatementFactory" />
+		</property>
+	</bean>
+
+
+	<!-- JdbcUtils configuration -->
+	<bean id="DataSourceBD" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.dac.url}" />
+		<property name="username" value="${jdbc.dac.username}" />
+		<property name="password" value="${jdbc.dac.password}" />
+		<property name="initialSize" value="2" />
+		<property name="maxActive" value="-1" />
+		<property name="maxIdle" value="2" />
+		<property name="defaultAutoCommit" value="true" />
+	</bean>
+
+
+	<bean id="JdbcServiceUK" class="com.nazdaqTechnologies.jdbc.JdbcService">
+		<property name="dataSource">
+			<ref bean="DataSourceUK" />
+		</property>
+		<property name="transactionManager">
+			<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+				<property name="dataSource" ref="DataSourceUK" />
+			</bean>
+		</property>
+		<property name="jdbcStatementFactory">
+			<bean id="JdbcStatementFactory" class="com.nazdaqTechnologies.jdbc.JdbcStatementFactory" />
+		</property>
+	</bean>
+
+	<bean id="DataSourceUK" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.uk.url}" />
+		<property name="username" value="${jdbc.uk.username}" />
+		<property name="password" value="${jdbc.uk.password}" />
+		<property name="initialSize" value="2" />
+		<property name="maxActive" value="-1" />
+		<property name="maxIdle" value="2" />
+		<property name="defaultAutoCommit" value="true" />
+
+	</bean>
+
+
+
+
+</beans>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<!-- @author Ahasanul Ashid, IBCS, @author Abu Taleb, IBCS -->
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+    <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+    <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:orcl</property>    
+    <property name="hibernate.connection.username">icx</property>
+    <property name="hibernate.connection.password">icx</property>
+    <property name="hibernate.bytecode.provider">cglib</property>
+    <property name="hibernate.show_sql">false</property>
+    <property name="current_session_context_class">thread</property>
+    <property name="hibernate.format_sql">false</property>
+    <property name="hibernate.connection.release_mode">auto</property>
+    <property name="hibernate.default_entity_mode">pojo</property>
+    <property name="hibernate.connection.autocommit">true</property>
+    <property name="hibernate.connection.release_mode">auto</property>
+    <property name="default_batch_fetch_size">100</property>
+
+    <!-- <mapping resource="com/icx/Model/IcxErrorLog.hbm.xml"/> -->
+    
+    <mapping resource="com/ibcs/acl/model/AuthUser.hbm.xml"/>
+    <mapping resource="com/ibcs/acl/model/Roles.hbm.xml"/>
+    <mapping resource="com/ibcs/acl/model/PermissionTable.hbm.xml"/>
+    <mapping resource="com/ibcs/acl/model/ObjectReference.hbm.xml"/>
+   
+  </session-factory>
+</hibernate-configuration>
